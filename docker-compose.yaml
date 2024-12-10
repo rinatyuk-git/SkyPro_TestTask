@@ -1,0 +1,40 @@
+version: '3'
+services:
+
+  postgres_db:
+    image: postgres:latest
+    healthcheck:
+      test: pg_isready -d ${POSTGRES_DB} -U ${POSTGRES_USER}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    container_name: testtask_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    restart: unless-stopped
+    volumes:
+      - testtask_db_data:/var/lib/postgresql/data/
+    ports:
+      - "5435:5432"
+    env_file:
+      - .env
+
+  web:
+    image: testtask_app
+    container_name: testtask_web
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+    restart: unless-stopped
+    ports:
+      - "5000:8000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+
+volumes:
+  testtask_db_data:

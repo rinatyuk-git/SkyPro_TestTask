@@ -1,0 +1,29 @@
+[
+  {
+    "model": "member.product",
+    "pk": 1,
+    "fields": {
+      "product_name": "TV",
+      "product_model": "TVtv",
+      "product_launched_at": "2024-12-06"
+    }
+  },
+  {
+    "model": "member.product",
+    "pk": 2,
+    "fields": {
+      "product_name": "Dishwasher",
+      "product_model": "DW_washer",
+      "product_launched_at": "2024-12-02"
+    }
+  },
+  {
+    "model": "member.product",
+    "pk": 3,
+    "fields": {
+      "product_name": "Microwave owen",
+      "product_model": "MW_owen",
+      "product_launched_at": "2024-10-06"
+    }
+  }
+]

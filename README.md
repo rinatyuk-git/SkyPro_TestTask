@@ -1,4 +1,4 @@
-# Сервис обработки загружаемых документов
+# Онлайн платформа: торговая сеть по продаже электроники
 ![Python](https://img.shields.io/badge/Python-3.11.9-blue)
 ![Django](https://img.shields.io/badge/django-5.1.4-092E20?logo=django&logoColor=white)
 ![DRF](https://img.shields.io/badge/django--rest--framework-3.15.2-blue?labelColor=333333&logo=django&logoColor=white&color=blue)
